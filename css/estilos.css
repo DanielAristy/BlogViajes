@@ -1,0 +1,218 @@
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+img{/*En este caso que ocupe el 100% de la pantalla disponible*/
+    max-width: 100%;
+}
+p{
+    font-size: 15px;
+    line-height: 2; /**/
+}
+.boton{
+    background-color: #00b8e4;
+    padding: 10px 60px;
+    display: inline-block;/*Este habilita el margin top*/
+    margin-top: 10px;/*Un poco mas de separacion*/
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;/*Agrandar el grosor de la letra*/
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: background-color .3s ease-in-out;/*Halla una transicion en el boton*/
+    
+}
+.boton:hover{
+    background-color: #06657c;
+}
+/*Header*/
+.site-header{
+    padding: 20px 0/*Funciona con las manecillas del relos
+                    empezando a las 12 en punto hacia las derecha*/
+
+}
+.contenedor{
+    max-width: 1200px;
+    margin: 0 auto; /*Centrar los layout*/
+}
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/*Navegacion Responsive*/
+.barra{
+    overflow: hidden;/*En este caso sirve porque algunos de los enlances se muestran
+                      y con esta funcion lo que hace es eliminar la vista de los enlaces*/
+}
+.mobile-menu{/*En este lo vamos a utilizar para el diseños responsive y vamos aplicar un media querie*/
+    color: #ffffff;
+    font-size: 2rem; 
+    text-align: center;/*Con esto lo alineo al centro pero debo aplicar un display block para que funcione*/
+    display: block;
+    padding: 20px 0;/*En este caso le vamos dar un padding para el espacio*/
+}
+#nav:target{
+    max-height: 800px;/*Ocupe todo el espacio y muestre los enlaces*/
+}
+.navegacion-principal{
+    max-height: 0;/*Con esto le damos el tamaño al boton*/
+    transition: .7s;/*Esta transicion sirve para que cuando presione el boton de abrir el menu de link y cerrar sea vea
+    */
+}
+@media (min-width:768px){
+    .navegacion-principal{
+        max-height: unset;/*En este caso cuando no me aparecia la barra de enlaces con esto los ignora automaticamente
+                            cuando cumple el tamaño*/
+    }
+    .mobile-menu, 
+    .cerrar {
+        display: none!important;
+    }
+}
+
+/*Navegacion*/
+.barra{
+    margin-top: 40px;/*Separacion con cada enlace*/
+    background-color: #db008d;
+}
+.navegacion-principal a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    text-align: center;
+    padding: 20px
+}
+@media (min-width: 768px){
+    .navegacion-principal a{
+        display: inline-block;
+    }
+    
+}
+.navegacion-principal a:hover{
+    background-color: #00b8e4
+}
+
+/*Contenedores principales*/
+.contenido-principal{
+    margin-top: 40px;/*Separacion con la barra de link con el contenido*/
+}
+.contenido-principal,
+.sidebar{
+    padding: 20px;/*Espacio en todas las direcciones en modo responsive*/
+
+}
+@media (min-width: 768px){
+    .contenido-principal{
+        width: 70%;
+        float: left;
+        padding: 0 60px 0 0;
+    }
+    /*Posicionar uno al lado del otro con float uno a la izquierda y uno a la derecha tener en cuenta el tamaño y el espacio*/
+    .sidebar{
+        width: 30%;
+        float: right;
+        padding: 0;
+        margin-top: 40px;/*Para valancear los posts con el blog*/
+    }
+}
+
+/*Entradas de blog*/
+h2{
+    color: #00b8e4;
+    margin-bottom: 20px;
+
+}
+.entrada{
+    margin-bottom: 60px;/*Separacion con cada uno de los elementos del blog*/
+}
+.entrada:last-of-type{/*Con esto obtengo la ultima entrada y remuevo el margin*/
+    margin-bottom: 0;
+}
+.entrada img{
+    display: block;
+    max-width: auto;
+}
+@media (min-width: 480px){
+    .entrada img{
+        max-width: 300px;
+        float: left; /*La imagen y la letra vayan corriendo a la par*/
+        margin: 0 30px 0 0; /*Separacion entre la imagen con la letra*/
+    }
+}
+.entrada p{
+    text-align: justify;/*Justificar el texto*/
+}
+
+/*Sidebar*/
+.sidebar ul{
+    list-style: none;/*Quitar los puntos que viene por defecto*/
+    padding: 0;/*En el caso estaba desalineados y se pusieron a tope con el titulo*/
+}
+.sidebar ul li{
+    padding: 10px;/*Separacion del boton*/
+}
+.sidebar ul li:hover{/*En este caso le pone el boton azul para resaltar la entrada*/
+    background-color: #00b8e4;
+}
+.sidebar  ul li a {
+    color: #00b8e4;
+    font-size: 18px;
+    text-decoration: none;
+}
+.sidebar  ul li:hover a{/*En este caso se hizo esto porque cuando poniamos el color azul
+                         no se diferenciaba la letra de lo que contenia y ya hay una t
+                         trasicion de colores para que se vea la letra y el color*/
+    color: #ffffff;
+}
+
+/*Footer*/
+.footer-sitio{
+    background-color: #db008d;
+    padding-top: 40px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    text-align: center;
+}
+.footer-sitio h2{
+    color: #ffffff;
+}
+.footer-sitio a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 22px;
+    margin-right: 22px;
+}
+.footer-sitio a:last-of-type{
+    margin-right: 0;/*Quitarle la margen al ultimo elemento*/
+}
+@media (min-width: 768px){
+    .footer-sitio .nosotros{
+        float: left;
+        width: 30%;
+        text-align: left;
+    }
+    .footer-sitio .menu{
+        float: right;
+        width: 5  v 0%;
+        text-align: right;
+    }
+}
+.copyright{
+    background-color: #b10474;
+    margin: 50px 0 0 0;
+    padding: 20px 0;
+}
+
+/*Ejemplo con target*/
+/*.ejemplo:target{Esta funcion sirve cuando yo doy click en el boton activar ejemplo
+                 y en este caso se activa una animacion de color amarillo
+    background-color: yellow;
+}*/
